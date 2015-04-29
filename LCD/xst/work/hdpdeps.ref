@@ -1,0 +1,6 @@
+V3 3
+FL /home/michal/LCD_HD4470/lcd.vhd 2015/04/12.20:32:50 P.20131013
+EN work/lcd 1430080516 FL /home/michal/LCD_HD4470/lcd.vhd PB ieee/std_logic_1164 1381692176 \
+      PB ieee/std_logic_arith 1381692177 PB ieee/STD_LOGIC_UNSIGNED 1381692179
+AR work/lcd/Behavioral 1430080517 \
+      FL /home/michal/LCD_HD4470/lcd.vhd EN work/lcd 1430080516

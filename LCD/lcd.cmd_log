@@ -1,0 +1,3 @@
+xst -intstyle ise -ifn "/home/michal/LCD_HD4470/lcd.xst" -ofn "/home/michal/LCD_HD4470/lcd.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc3s500e-fg320-4 lcd.ngc lcd.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o lcd_map.ncd lcd.ngd lcd.pcf 
