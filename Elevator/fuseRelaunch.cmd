@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -o "/home/michal/Winda/Winda_GOTOWE_testbench_isim_beh.exe" -prj "/home/michal/Winda/Winda_GOTOWE_testbench_beh.prj" "work.Winda_GOTOWE_testbench" 

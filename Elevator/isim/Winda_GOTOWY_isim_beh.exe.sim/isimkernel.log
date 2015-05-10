@@ -1,0 +1,29 @@
+Command line:
+   Winda_GOTOWY_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  37374
+
+Mon May 11 01:01:54 2015
+
+
+ Elaboration Time: 0.01 sec
+
+ Current Memory Usage: 195.92 Meg
+
+ Total Signals          : 26
+ Total Nets             : 40
+ Total Signal Drivers   : 10
+ Total Blocks           : 4
+ Total Primitive Blocks : 4
+ Total Processes        : 8
+ Total Traceable Variables  : 10
+ Total Scalar Nets and Variables : 418
+Total Line Count : 61
+
+ Total Simulation Time: 0.04 sec
+
+ Current Memory Usage: 271.421 Meg
+
+Mon May 11 01:02:02 2015
+

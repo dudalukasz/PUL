@@ -1,0 +1,24 @@
+Running: /opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/unwrapped/fuse -intstyle ise -incremental -o /home/michal/Winda/Winda_GOTOWE_testbench_isim_beh.exe -prj /home/michal/Winda/Winda_GOTOWE_testbench_beh.prj work.Winda_GOTOWE_testbench 
+ISim P.20131013 (signature 0xfbc00daa)
+Number of CPUs detected in this system: 4
+Turning on mult-threading, number of parallel sub-compilation jobs: 8 
+Determining compilation order of HDL files
+Parsing VHDL file "/home/michal/Winda/Winda_model.vhd" into library work
+Parsing VHDL file "/home/michal/Winda/Test_elevator.vhd" into library work
+Starting static elaboration
+Completed static elaboration
+Fuse Memory Usage: 96452 KB
+Fuse CPU Usage: 1450 ms
+Compiling package standard
+Compiling package std_logic_1164
+Compiling package std_logic_arith
+Compiling package std_logic_unsigned
+Compiling architecture winda_gotowy_entity of entity Winda_GOTOWY [winda_gotowy_default]
+Compiling architecture behavior of entity winda_gotowe_testbench
+Time Resolution for simulation is 1ps.
+Waiting for 1 sub-compilation(s) to finish...
+Compiled 7 VHDL Units
+Built simulation executable /home/michal/Winda/Winda_GOTOWE_testbench_isim_beh.exe
+Fuse Memory Usage: 668788 KB
+Fuse CPU Usage: 1560 ms
+GCC CPU Usage: 360 ms

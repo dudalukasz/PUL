@@ -1,0 +1,35 @@
+Command line:
+   Winda_GOTOWE_testbench_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  45891
+
+Mon May 11 01:03:02 2015
+
+
+ Elaboration Time: 0.02 sec
+
+ Current Memory Usage: 195.92 Meg
+
+ Total Signals          : 46
+ Total Nets             : 40
+ Total Signal Drivers   : 18
+ Total Blocks           : 5
+ Total Primitive Blocks : 4
+ Total Processes        : 11
+ Total Traceable Variables  : 12
+ Total Scalar Nets and Variables : 420
+Total Line Count : 85
+
+** Failure:Assertion violation
+User(VHDL) Code Called Simulation Stop
+In process Test_elevator.vhd:stim_proc 
+ 
+
+
+ Total Simulation Time: 0.06 sec
+
+ Current Memory Usage: 271.421 Meg
+
+Mon May 11 01:03:15 2015
+
