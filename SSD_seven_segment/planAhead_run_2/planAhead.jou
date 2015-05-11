@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# PlanAhead v14.7 (64-bit)
+# Build 321239 by xbuild on Fri Sep 27 19:29:51 MDT 2013
+# Start of session at: Mon May 11 10:29:40 2015
+# Process ID: 3500
+# Log file: I:/programowanie_ukladow_logicznych/204005/SSD_seven_segment/planAhead_run_2/planAhead.log
+# Journal file: I:/programowanie_ukladow_logicznych/204005/SSD_seven_segment/planAhead_run_2/planAhead.jou
+#-----------------------------------------------------------
+start_gui
+source I:/programowanie_ukladow_logicznych/204005/SSD_seven_segment/pa.fromHdl.tcl
+update_compile_order -fileset sim_1
+set_property package_pin "" [get_ports [list  switch0]]
