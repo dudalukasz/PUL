@@ -1,0 +1,2 @@
+vhdl isim_temp "Winda_model.vhd"
+vhdl isim_temp "Test_elevator.vhd"

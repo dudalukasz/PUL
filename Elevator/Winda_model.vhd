@@ -16,169 +16,187 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
 entity Winda_GOTOWY is 
 Port ( 
-         clk1 : IN  std_logic;
-         clk2 : IN  std_logic;
-         rst1 : IN  std_logic;
-         rst2 : IN  std_logic;
-         zero : IN  std_logic;
-         one : IN  std_logic;
-         two : IN  std_logic;
-         three : IN  std_logic;
-         four : IN  std_logic;
-         five : IN  std_logic;
-         six : IN  std_logic;
-         seven : IN  std_logic;
-         eight : IN  std_logic;
-         nine : IN  std_logic;
-         ten : IN  std_logic;
-         d_otwarte : OUT  std_logic:='0';
-         d_zamkniete : OUT  std_logic:='0';
-         c_numer_pietra : OUT  std_logic_vector(3 downto 0);
+         clk: in std_logic; 
+         reset: in std_logic; 
+         Pietro_zewn: in std_logic_vector(3 downto 0):="0000";   -- przycisk zewnetrzny wyboru pietra 
+			Pietro_wewn: in std_logic_vector(3 downto 0):="0000";   -- przycisk wewnetrzny wyboru pietra 
+         drzwi  : OUT  std_logic:='0';                   -- drzwi otwarte 1     drzwi zamkniete 0 
+         Pietro_aktu  : OUT  std_logic_vector(3 downto 0);  -- aktualny numer pietra -- posluzy do wyswietlenia na 7Segm
          alarm : IN  std_logic;
-         c_opo_drzwi_output : OUT  std_logic_vector(1 downto 0)
+         drzwi_opoznie : OUT  std_logic_vector(2 downto 0)  -- opoznienie otwierania drzwi poprzez diody  
       );
 end Winda_GOTOWY;
 
 architecture Winda_GOTOWY_entity of Winda_GOTOWY is
 
-type STANY is (spoczynek, gora_stan, dol_stan, otwi_zamy); 
+-- stan cel -> pietro docelowe osiagniete przez winde 
+type STANY is (parter, gora, dol, zamykanie, otwieranie, cel ); 
 signal stan, stan_nast :STANY; 
-signal count2: std_logic_vector(1 downto 0);                
+signal count: std_logic_vector(2 downto 0);                
 signal cnt1: std_logic_vector(3 downto 0):="0000";          
 signal cf, df: std_logic_vector(3 downto 0):="0000";
+signal drzwi_int: std_logic; 
+signal switch: std_logic; 
 
 begin
 
 
-zerowanie_ukladu:process(clk1,rst1)
+resetowanie_ukladu: process(clk,reset)
 begin
-        if (rst1='1')then
-           stan <= spoczynek;
-        elsif(clk1'Event and clk1='1') then
+        if (reset = '1')then
+           stan <= parter;
+        elsif(clk'Event and clk='1') then
            stan <= stan_nast;
        end if;
-end process zerowanie_ukladu;
+end process resetowanie_ukladu;
 
--- proces analizy zachowan przejsc z stanu do nastepnego stanu 
--- jest czuly od sygnalow cf, df, stan 
-zachowanie: process(cf,df,stan)
+ 
+automat: process(cf,df,stan)
 begin
           stan_nast <= stan; 
 			 case stan is 
-			      when spoczynek =>                                         -- Stan spoczynek
-					     if(cf = df) then 
-						     stan_nast <= spoczynek; 
-						  elsif ((cf > df)OR(cf < df)) then 
-						     stan_nast <= otwi_zamy; 
-						  end if; 
-					when gora_stan =>
-			           if (cf < df)then 
-     						  stan_nast <= gora_stan;
-							  cnt1 <= cnt1 + "0001";                            -- zwiekszanie vectora, który przechowuje wartosc 
-		              end if;                                              -- aktualnego pietra, poczatkowa wartosc to "0000"
-			           if (cf=df)then 
-						     stan_nast <= otwi_zamy;                            
-		              end if;
-	            when dol_stan =>
-			           if (cf > df)then  
-						     stan_nast <= dol_stan;
-							  cnt1 <= cnt1 - "0001";                            -- ruch windy w dol powoduje zmiejszenie wartosc vectora
-                    end if;
-			           if (cf=df)then
-						     stan_nast <= otwi_zamy;
-		              end if;
-				   when otwi_zamy =>                                         -- otwieranie drzwi, w momencie gdy winda jest 
-					     if (cf = df)then                                     -- miejscu docelowym 
-							     stan_nast <= spoczynek;					  
-						  end if; 
-						  if((cf > df))then
-						     stan_nast <= dol_stan; 
-						  elsif(cf < df)then
-						     stan_nast <= gora_stan; 
-						  end if; 
+			      when parter =>         -- z parteru mozemy tylko jechac do gory :) 					
+					     drzwi_int <= '0';   -- drzwi otwarte
+						  if (df > "0000") then 
+									stan <= zamykanie; 
+							else
+							     stan <= parter;
+							end if; 
+               when zamykanie => 
+						  if (count < "11") then 
+								stan <= zamykanie;  
+                    else
+								drzwi_int <= '1'; 
+								if ( df > cf ) then 
+								stan <= gora; 
+						      elsif (df < cf ) then 
+						      stan <= dol; 
+						      end if; 
+                     end if; 						  
+               -- drzwi zamkniete mozliwosc jechania do gory i w dol
+                    
+				   when gora => 
+							if (df > cf ) then
+							    cf <= cf  + '1'; 
+							    stan <= gora;
+						   else
+								 stan <= cel;
+                      end if; 								 
+				   when cel => 
+							if (drzwi_int = '1') then
+								stan <= otwieranie;
+							elsif (drzwi_int = '0' and df = cf) then
+								stan <= cel; 
+							elsif (drzwi_int = '0' and ((df > cf )OR(df < cf))) then
+								stan <= zamykanie; 
+							end if;
+					when otwieranie => 
+							if (count > "00") then
+								stan <= otwieranie; 
+                     else
+								drzwi_int <= '0'; 
+								stan <= cel;
+                     end if; 
+					when dol => 
+							if (df < cf ) then
+								cf <= cf - '1';
+								stan <= dol; 
+							else
+								stan <= cel;
+							end if; 
 			end case; 
-end process zachowanie;
+end process automat;
 
 -- proces przypisywania numeru wybranego pietra jako pietra docelowego 
-numer_pietra_docelowego: process (clk1, rst1)
+pietro_zewne_docelowe: process (switch)
 begin 
-        if(rst1 = '1' or alarm = '1' ) then              -- jeseli uk³ad jest zerowany b¹dz wybrany jest stan alarm  
-		    df <= "0000";                                  -- wtedy pietrem docelowym jest zero 
-		  elsif (clk1'Event and clk1 = '1') then       
-			  if    (zero = '1') then df <= "0000"; 
-           elsif (one = '1')  then df <= "0001";
-           elsif (two = '1')  then df <= "0010"; 
-           elsif (three = '1')then df <= "0011";
-           elsif (four = '1') then df <= "0100"; 
-           elsif (five = '1') then df <= "0101"; 
-           elsif (six = '1')  then df <= "0110";
-           elsif (seven = '1')then df <= "0111";
-           elsif (eight = '1')then df <= "1000"; 
-           elsif (nine = '1') then df <= "1001";
-           elsif (ten = '1')  then df <= "1010";
-          end if; 
-		end if; 
-end process numer_pietra_docelowego; 
+        if (switch = '1') then 	  
+			  if    (Pietro_zewn = "0000" )  then df <= "0000";  --0 
+			  elsif (Pietro_zewn = "0001" )  then df <= "0000";  --1
+           elsif (Pietro_zewn = "0010" )  then df <= "0001";
+           elsif (Pietro_zewn = "0011" )  then df <= "0010"; 
+           elsif (Pietro_zewn = "0100" )  then df <= "0011";
+           elsif (Pietro_zewn = "0101" )  then df <= "0100"; 
+           elsif (Pietro_zewn = "0110" )  then df <= "0101"; 
+           elsif (Pietro_zewn = "0111" )  then df <= "0110";
+           elsif (Pietro_zewn = "1000" )  then df <= "0111";
+           elsif (Pietro_zewn = "1001" )  then df <= "1000"; 
+           elsif (Pietro_zewn = "1010" )  then df <= "1001"; --9
+           end if; 
+		  elsif (switch = '0') then
+		     if    (Pietro_wewn = "0000" )  then df <= "0000";  --0 
+			  elsif (Pietro_wewn = "0001" )  then df <= "0000";  --1
+           elsif (Pietro_wewn = "0010" )  then df <= "0001";
+           elsif (Pietro_wewn = "0011" )  then df <= "0010"; 
+           elsif (Pietro_wewn = "0100" )  then df <= "0011";
+           elsif (Pietro_wewn = "0101" )  then df <= "0100"; 
+           elsif (Pietro_wewn = "0110" )  then df <= "0101"; 
+           elsif (Pietro_wewn = "0111" )  then df <= "0110";
+           elsif (Pietro_wewn = "1000" )  then df <= "0111";
+           elsif (Pietro_wewn = "1001" )  then df <= "1000"; 
+           elsif (Pietro_wewn = "1010" )  then df <= "1001"; --9
+			  end if;
+		  end if; 
+end process pietro_zewne_docelowe; 
 
-poruszanie: process(clk1,stan)
-begin    
-      if (clk1 = '1' and clk1'event) then                           
-         if ( stan = gora_stan and cf < df  ) then                  -- przepisanie wartosci do cf z licznika 
-			    cf <= cnt1;                                            -- który posiada zawartosc pietra 
-		   elsif( stan = dol_stan and cf > df ) then 
-				 cf <= cnt1; 
-			end if; 
+zew_wew: process (Pietro_zewn,Pietro_wewn,stan)
+begin
+	if ( stan = parter ) then 
+		if (Pietro_zewn = Pietro_wewn) then 
+			switch <= '1'; 
+		elsif(Pietro_zewn > "0000") then 
+			switch <= '1'; 
+		elsif(Pietro_wewn > "0000") then 
+			switch <= '0'; 
 		end if; 
-end process poruszanie; 
+	elsif (stan = gora ) then 
+		if (Pietro_zewn < df and Pietro_zewn > cf) then 
+			switch <= '1'; 
+		elsif (Pietro_wewn < df and Pietro_wewn > cf) then 
+			switch <= '0'; 
+		end if;
+	elsif (stan = gora ) then 
+		if (Pietro_zewn > df and Pietro_zewn < cf) then 
+			switch <= '1'; 
+		elsif (Pietro_wewn > df and Pietro_wewn < cf) then 
+			switch <= '0';	
+		end if; 
+	elsif (stan = cel) then
+		if (Pietro_zewn > Pietro_wewn ) then 
+			switch <= '0';
+		else 
+		   switch <= '1'; 
+	   end if; 
+  	end if; 
+end process zew_wew;
 
-process_otwierania_drzwi: process(clk2,rst2,stan)
+process_otwierania_drzwi: process(clk,reset,stan)
 begin 
-         if (rst2 = '1' OR alarm = '1') then                         
-			   count2 <= "00"; 
-		   elsif (clk2 = '1' and clk2'Event ) then                    -- count2 = "11"  - drzwi otwarte 
-			    if ( stan = otwi_zamy and cf = df) then                -- nastepuje odliczanie otwarcia drzwi
-			        count2 <= count2 + "01";                           -- jezeli jest stan odpowiedni oraz pietro jest aktualne 
-				 else                                                   -- w przeciwnym razie drzwi s¹ zamkniete "00" 
-				     count2 <= "00";                                    -- count2 = "00"- drzwi zamkniete
+         if (reset = '1' OR alarm = '1') then                         
+			   count <= "00"; 
+		   elsif (clk = '1' and clk'Event ) then                    -- count2 = "11"  - drzwi otwarte 
+			    if ( stan = otwieranie ) then                -- nastepuje odliczanie otwarcia drzwi
+			        count <= count - "1";                           -- jezeli jest stan odpowiedni oraz pietro jest aktualne 
+				 elsif (stan = zamykanie ) then 
+                 count <= count + '1'; 
              end if; 					  
 			end if;
 end process process_otwierania_drzwi; 
 
 
--- proces zarzadzajacy otwieranie drzwi 
-drzwi: process(clk2, rst2,stan )
-begin 
-     if (rst2 = '1' OR alarm = '1') then                              -- reset albo alarm -> drzwi zamkniete
-	     d_zamkniete <= '1'; 
-		  d_otwarte <= '0';
-		  
-	  elsif(clk2 ='1' and clk2'Event) then                             -- clk2 synchronizuje otwarcie drzwi 
-	    if (stan = otwi_zamy and cf = df) then                         -- clk2 ma okres 1/2 clk1
-            if (count2 <= "11") then                                  -- drzwi sa juz otwarte 
-              if ( count2 <= "11" OR count2 <= "01" OR count2 <= "10")then	       -- drzwi pozostaja dalej otwarte 			
-			        d_otwarte <= '1'; 
-				     d_zamkniete <= '0';
-					end if; 
-	         elsif(clk1 = '1' and clk1'event) then                      -- zamkniecie drzwi nastepuje przy kolejnym 
-			     d_otwarte <= '0';                                        -- takcie zegara
-				  d_zamkniete <= '1'; 
-				end if; 
-		  elsif(stan = otwi_zamy and cf>df) then	                       -- w ruchu pomiedzy pietrami drzwi sa zamkniete 
-				d_zamkniete <= '1';                                        -- mozliwe zastosowanie (( cf<df) OR (cf > df))
-				d_otwarte <= '0'; 
-		  elsif(stan = otwi_zamy and cf<df) then 
-				d_zamkniete <= '1'; 
-				d_otwarte <= '0';
-		  end if;  
-			
-	end if; 
-end process; 
+ 
 		  
 
 
 -- przepisanie sygnalow 
 -- sygnaly otwarci oraz zamkniecia drzwi sa przepisane w kodzie
-c_numer_pietra <= cf; 
-c_opo_drzwi_output <= count2;
+Pietro_aktu <= cf; 
+drzwi_opoznie <= count;
+
+
+
+------------------------------------------------------------------------------------------------------------
+---------DEKODOWANIE 4 bitowej na Seven Segment 
+
 
 end Winda_GOTOWY_entity;

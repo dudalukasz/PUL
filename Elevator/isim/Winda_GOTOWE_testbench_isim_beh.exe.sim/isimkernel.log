@@ -2,9 +2,9 @@ Command line:
    Winda_GOTOWE_testbench_isim_beh.exe
      -simmode  gui
      -simrunnum  0
-     -socket  45891
+     -socket  38192
 
-Mon May 11 01:03:02 2015
+Mon May 18 20:07:54 2015
 
 
  Elaboration Time: 0.02 sec
@@ -27,9 +27,9 @@ In process Test_elevator.vhd:stim_proc
  
 
 
- Total Simulation Time: 0.06 sec
+ Total Simulation Time: 0.05 sec
 
  Current Memory Usage: 271.421 Meg
 
-Mon May 11 01:03:15 2015
+Mon May 18 20:08:19 2015
 
