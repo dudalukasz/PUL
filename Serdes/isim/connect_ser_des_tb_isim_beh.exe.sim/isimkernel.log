@@ -2,12 +2,12 @@ Command line:
    connect_ser_des_tb_isim_beh.exe
      -simmode  gui
      -simrunnum  0
-     -socket  38115
+     -socket  47611
 
-Sat Jun  6 12:57:52 2015
+Sat Jun  6 13:58:34 2015
 
 
- Elaboration Time: 0.02 sec
+ Elaboration Time: 0.03 sec
 
  Current Memory Usage: 196.002 Meg
 
@@ -17,13 +17,13 @@ Sat Jun  6 12:57:52 2015
  Total Blocks           : 9
  Total Primitive Blocks : 7
  Total Processes        : 19
- Total Traceable Variables  : 38
- Total Scalar Nets and Variables : 820
-Total Line Count : 50
+ Total Traceable Variables  : 39
+ Total Scalar Nets and Variables : 852
+Total Line Count : 53
 
- Total Simulation Time: 0.03 sec
+ Total Simulation Time: 0.04 sec
 
  Current Memory Usage: 271.503 Meg
 
-Sat Jun  6 12:57:58 2015
+Sat Jun  6 13:58:56 2015
 
