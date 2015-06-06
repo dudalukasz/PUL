@@ -1,0 +1,22 @@
+V3 10
+FL /home/michal/Dokumenty/VHDL/Elevator/clock_divider.vhd 2015/05/25.18:25:04 P.20131013
+EN work/clock_divider 1432571109 \
+      FL /home/michal/Dokumenty/VHDL/Elevator/clock_divider.vhd \
+      PB ieee/std_logic_1164 1381692176 PB ieee/std_logic_arith 1381692177 \
+      PB ieee/STD_LOGIC_UNSIGNED 1381692179
+AR work/clock_divider/Behavioral 1432571110 \
+      FL /home/michal/Dokumenty/VHDL/Elevator/clock_divider.vhd \
+      EN work/clock_divider 1432571109
+FL /home/michal/Dokumenty/VHDL/Elevator/elevator.vhd 2015/05/25.19:16:22 P.20131013
+EN work/Winda_GOTOWY 1432574197 \
+      FL /home/michal/Dokumenty/VHDL/Elevator/elevator.vhd PB ieee/std_logic_1164 1381692176 \
+      PB ieee/std_logic_arith 1381692177 PB ieee/STD_LOGIC_UNSIGNED 1381692179
+AR work/Winda_GOTOWY/Winda_GOTOWY_entity 1432574198 \
+      FL /home/michal/Dokumenty/VHDL/Elevator/elevator.vhd EN work/Winda_GOTOWY 1432574197 \
+      CP sseg
+FL /home/michal/Dokumenty/VHDL/Elevator/sevenSegment.vhd 2015/05/25.18:54:40 P.20131013
+EN work/sseg 1432574195 FL /home/michal/Dokumenty/VHDL/Elevator/sevenSegment.vhd \
+      PB ieee/std_logic_1164 1381692176 PB ieee/std_logic_arith 1381692177 \
+      PB ieee/STD_LOGIC_UNSIGNED 1381692179
+AR work/sseg/Behavioral 1432574196 \
+      FL /home/michal/Dokumenty/VHDL/Elevator/sevenSegment.vhd EN work/sseg 1432574195

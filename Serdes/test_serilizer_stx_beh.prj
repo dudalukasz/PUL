@@ -1,0 +1,2 @@
+vhdl isim_temp "../../../Pulpit/Serdes/serializer.vhd"
+vhdl isim_temp "test_serilizer.vhd"

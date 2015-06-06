@@ -1,0 +1,5 @@
+set -tmpdir "/home/michal/Dokumenty/VHDL/Elevator/xst/projnav.tmp"
+set -xsthdpdir "/home/michal/Dokumenty/VHDL/Elevator/xst"
+elaborate
+-ifn clock_divider.prj
+-ifmt mixed

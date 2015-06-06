@@ -1,0 +1,2 @@
+vhdl isim_temp "Deserializer2.vhd"
+vhdl isim_temp "Deserializer_test2.vhd"

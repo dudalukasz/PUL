@@ -1,2 +1,2 @@
-vhdl work "Winda_model.vhd"
-vhdl work "Test_elevator.vhd"
+vhdl work "elevator.vhd"
+vhdl work "elevator_test.vhd"

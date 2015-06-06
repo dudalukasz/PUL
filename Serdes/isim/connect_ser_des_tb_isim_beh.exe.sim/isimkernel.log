@@ -1,0 +1,10 @@
+Command line:
+   connect_ser_des_tb_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  43269
+
+Sat Jun  6 10:34:08 2015
+
+
+ Elaboration Time: 0.02 sec

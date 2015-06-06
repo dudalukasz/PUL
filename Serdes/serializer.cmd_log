@@ -1,0 +1,3 @@
+xst -intstyle ise -ifn "/home/michal/Dokumenty/VHDL/Serdes/serializer.xst" -ofn "/home/michal/Dokumenty/VHDL/Serdes/serializer.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc3s500e-fg320-4 serializer.ngc serializer.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o serializer_map.ncd serializer.ngd serializer.pcf 

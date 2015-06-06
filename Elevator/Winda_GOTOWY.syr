@@ -1,0 +1,499 @@
+Release 14.7 - xst P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> 
+Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.06 secs
+ 
+--> 
+Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.06 secs
+ 
+--> 
+Reading design: Winda_GOTOWY.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "Winda_GOTOWY.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "Winda_GOTOWY"
+Output Format                      : NGC
+Target Device                      : xc3s500e-4-fg320
+
+---- Source Options
+Top Module Name                    : Winda_GOTOWY
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 24
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling vhdl file "/home/michal/Dokumenty/VHDL/Elevator/sevenSegment.vhd" in Library work.
+Architecture behavioral of Entity sseg is up to date.
+Compiling vhdl file "/home/michal/Dokumenty/VHDL/Elevator/elevator.vhd" in Library work.
+Architecture winda_gotowy_entity of Entity winda_gotowy is up to date.
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for entity <Winda_GOTOWY> in library <work> (architecture <winda_gotowy_entity>).
+
+Analyzing hierarchy for entity <sseg> in library <work> (architecture <behavioral>).
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing Entity <Winda_GOTOWY> in library <work> (Architecture <winda_gotowy_entity>).
+Entity <Winda_GOTOWY> analyzed. Unit <Winda_GOTOWY> generated.
+
+Analyzing Entity <sseg> in library <work> (Architecture <behavioral>).
+Entity <sseg> analyzed. Unit <sseg> generated.
+
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <sseg>.
+    Related source file is "/home/michal/Dokumenty/VHDL/Elevator/sevenSegment.vhd".
+    Found 16x7-bit ROM for signal <segment7$mux0001> created at line 23.
+    Found 7-bit register for signal <segment7>.
+    Found 1-bit register for signal <CLK_1Hz>.
+    Found 25-bit comparator less for signal <CLK_1Hz$cmp_lt0000> created at line 44.
+    Found 25-bit up counter for signal <Counter>.
+    Summary:
+	inferred   1 ROM(s).
+	inferred   1 Counter(s).
+	inferred   8 D-type flip-flop(s).
+	inferred   1 Comparator(s).
+Unit <sseg> synthesized.
+
+
+Synthesizing Unit <Winda_GOTOWY>.
+    Related source file is "/home/michal/Dokumenty/VHDL/Elevator/elevator.vhd".
+    Using one-hot encoding for signal <stan>.
+    Found 16x4-bit ROM for signal <df$mux0011>.
+    Found 1-bit register for signal <d_otwarte>.
+    Found 1-bit register for signal <d_zamkniete>.
+    Found 4-bit register for signal <cf>.
+    Found 4-bit comparator greater for signal <cf$cmp_gt0000> created at line 134.
+    Found 4-bit comparator less for signal <cf$cmp_lt0000> created at line 133.
+    Found 4-bit register for signal <cnt1>.
+    Found 4-bit addsub for signal <cnt1$share0000> created at line 74.
+    Found 2-bit up counter for signal <count2>.
+    Found 4-bit comparator equal for signal <d_zamkniete$cmp_eq0000> created at line 163.
+    Found 4-bit register for signal <df>.
+    Found 4-bit register for signal <stan>.
+    Found 4-bit register for signal <stan_nast>.
+    Summary:
+	inferred   1 ROM(s).
+	inferred   1 Counter(s).
+	inferred  18 D-type flip-flop(s).
+	inferred   1 Adder/Subtractor(s).
+	inferred   3 Comparator(s).
+Unit <Winda_GOTOWY> synthesized.
+
+INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmetic operations in this design can share the same physical resources for reduced device utilization. For improved clock frequency you may try to disable resource sharing.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# ROMs                                                 : 2
+ 16x4-bit ROM                                          : 1
+ 16x7-bit ROM                                          : 1
+# Adders/Subtractors                                   : 1
+ 4-bit addsub                                          : 1
+# Counters                                             : 2
+ 2-bit up counter                                      : 1
+ 25-bit up counter                                     : 1
+# Registers                                            : 9
+ 1-bit register                                        : 3
+ 4-bit register                                        : 5
+ 7-bit register                                        : 1
+# Comparators                                          : 4
+ 25-bit comparator less                                : 1
+ 4-bit comparator equal                                : 1
+ 4-bit comparator greater                              : 1
+ 4-bit comparator less                                 : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+Synthesizing (advanced) Unit <Winda_GOTOWY>.
+INFO:Xst:3034 - In order to maximize performance and save block RAM resources, the small ROM <Mrom_df_mux0011> will be implemented on LUT. If you want to force its implementation on block, use option/constraint rom_style.
+Unit <Winda_GOTOWY> synthesized (advanced).
+
+Synthesizing (advanced) Unit <sseg>.
+INFO:Xst:3034 - In order to maximize performance and save block RAM resources, the small ROM <Mrom_segment7_mux0001> will be implemented on LUT. If you want to force its implementation on block, use option/constraint rom_style.
+Unit <sseg> synthesized (advanced).
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# ROMs                                                 : 2
+ 16x4-bit ROM                                          : 1
+ 16x7-bit ROM                                          : 1
+# Adders/Subtractors                                   : 1
+ 4-bit addsub                                          : 1
+# Counters                                             : 2
+ 2-bit up counter                                      : 1
+ 25-bit up counter                                     : 1
+# Registers                                            : 30
+ Flip-Flops                                            : 30
+# Comparators                                          : 4
+ 25-bit comparator less                                : 1
+ 4-bit comparator equal                                : 1
+ 4-bit comparator greater                              : 1
+ 4-bit comparator less                                 : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <Winda_GOTOWY> ...
+
+Optimizing unit <sseg> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block Winda_GOTOWY, actual ratio is 1.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 57
+ Flip-Flops                                            : 57
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : Winda_GOTOWY.ngr
+Top Level Output File Name         : Winda_GOTOWY
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 20
+
+Cell Usage :
+# BELS                             : 145
+#      GND                         : 1
+#      INV                         : 5
+#      LUT1                        : 28
+#      LUT2                        : 2
+#      LUT3                        : 9
+#      LUT3_D                      : 1
+#      LUT3_L                      : 1
+#      LUT4                        : 31
+#      LUT4_D                      : 4
+#      LUT4_L                      : 3
+#      MUXCY                       : 34
+#      VCC                         : 1
+#      XORCY                       : 25
+# FlipFlops/Latches                : 57
+#      FD                          : 14
+#      FDC                         : 5
+#      FDCE                        : 1
+#      FDE                         : 5
+#      FDP                         : 1
+#      FDPE                        : 1
+#      FDR                         : 27
+#      FDS                         : 3
+# Clock Buffers                    : 2
+#      BUFGP                       : 2
+# IO Buffers                       : 18
+#      IBUF                        : 7
+#      OBUF                        : 11
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s500efg320-4 
+
+ Number of Slices:                       44  out of   4656     0%  
+ Number of Slice Flip Flops:             48  out of   9312     0%  
+ Number of 4 input LUTs:                 84  out of   9312     0%  
+ Number of IOs:                          20
+ Number of bonded IOBs:                  20  out of    232     8%  
+    IOB Flip Flops:                       9
+ Number of GCLKs:                         2  out of     24     8%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+---------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)     | Load  |
+-----------------------------------+---------------------------+-------+
+clk2                               | BUFGP                     | 4     |
+clk1                               | BUFGP                     | 46    |
+komponent/CLK_1Hz                  | NONE(komponent/segment7_6)| 7     |
+-----------------------------------+---------------------------+-------+
+INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
+
+Asynchronous Control Signals Information:
+----------------------------------------
+-----------------------------------+------------------------+-------+
+Control Signal                     | Buffer(FF name)        | Load  |
+-----------------------------------+------------------------+-------+
+rst2                               | IBUF                   | 4     |
+stan_or0000(stan_or00001:O)        | NONE(stan_0)           | 4     |
+-----------------------------------+------------------------+-------+
+
+Timing Summary:
+---------------
+Speed Grade: -4
+
+   Minimum period: 7.062ns (Maximum Frequency: 141.603MHz)
+   Minimum input arrival time before clock: 2.992ns
+   Maximum output required time after clock: 4.394ns
+   Maximum combinational path delay: No path found
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk1'
+  Clock period: 7.062ns (frequency: 141.603MHz)
+  Total number of paths / destination ports: 1286 / 73
+-------------------------------------------------------------------------
+Delay:               7.062ns (Levels of Logic = 5)
+  Source:            cf_3 (FF)
+  Destination:       cnt1_1 (FF)
+  Source Clock:      clk1 rising
+  Destination Clock: clk1 rising
+
+  Data Path: cf_3 to cnt1_1
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDE:C->Q             12   0.591   0.996  cf_3 (cf_3)
+     LUT4:I2->O            3   0.704   0.610  cf_cmp_gt00001_SW0_SW1 (N24)
+     LUT3_D:I1->LO         1   0.704   0.135  cf_cmp_gt00001 (N44)
+     LUT3:I2->O            2   0.704   0.451  cnt1_mux0000<0>1_SW0 (N15)
+     LUT4_D:I3->O          2   0.704   0.451  cnt1_mux0000<0>1 (N01)
+     LUT4:I3->O            1   0.704   0.000  cnt1_mux0000<3> (cnt1_mux0000<3>)
+     FD:D                      0.308          cnt1_3
+    ----------------------------------------
+    Total                      7.062ns (4.419ns logic, 2.643ns route)
+                                       (62.6% logic, 37.4% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk2'
+  Clock period: 2.309ns (frequency: 433.088MHz)
+  Total number of paths / destination ports: 3 / 2
+-------------------------------------------------------------------------
+Delay:               2.309ns (Levels of Logic = 1)
+  Source:            count2_0 (FF)
+  Destination:       count2_1 (FF)
+  Source Clock:      clk2 rising
+  Destination Clock: clk2 rising
+
+  Data Path: count2_0 to count2_1
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q              3   0.591   0.706  count2_0 (count2_0)
+     LUT4:I0->O            1   0.704   0.000  Mcount_count2_xor<1>11 (Mcount_count21)
+     FDC:D                     0.308          count2_1
+    ----------------------------------------
+    Total                      2.309ns (1.603ns logic, 0.706ns route)
+                                       (69.4% logic, 30.6% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk1'
+  Total number of paths / destination ports: 14 / 6
+-------------------------------------------------------------------------
+Offset:              2.992ns (Levels of Logic = 2)
+  Source:            wejscie<3> (PAD)
+  Destination:       df_3 (FF)
+  Destination Clock: clk1 rising
+
+  Data Path: wejscie<3> to df_3
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             4   1.218   0.762  wejscie_3_IBUF (wejscie_3_IBUF)
+     LUT3:I0->O            1   0.704   0.000  Mrom_df_mux0011311 (Mrom_df_mux001131)
+     FDR:D                     0.308          df_3
+    ----------------------------------------
+    Total                      2.992ns (2.230ns logic, 0.762ns route)
+                                       (74.5% logic, 25.5% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk2'
+  Total number of paths / destination ports: 4 / 4
+-------------------------------------------------------------------------
+Offset:              4.394ns (Levels of Logic = 1)
+  Source:            count2_0 (FF)
+  Destination:       c_opo_drzwi_output<0> (PAD)
+  Source Clock:      clk2 rising
+
+  Data Path: count2_0 to c_opo_drzwi_output<0>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q              3   0.591   0.531  count2_0 (count2_0)
+     OBUF:I->O                 3.272          c_opo_drzwi_output_0_OBUF (c_opo_drzwi_output<0>)
+    ----------------------------------------
+    Total                      4.394ns (3.863ns logic, 0.531ns route)
+                                       (87.9% logic, 12.1% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'komponent/CLK_1Hz'
+  Total number of paths / destination ports: 7 / 7
+-------------------------------------------------------------------------
+Offset:              4.283ns (Levels of Logic = 1)
+  Source:            komponent/segment7_6 (FF)
+  Destination:       sseg_disp<6> (PAD)
+  Source Clock:      komponent/CLK_1Hz rising
+
+  Data Path: komponent/segment7_6 to sseg_disp<6>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q               1   0.591   0.420  komponent/segment7_6 (komponent/segment7_6)
+     OBUF:I->O                 3.272          sseg_disp_6_OBUF (sseg_disp<6>)
+    ----------------------------------------
+    Total                      4.283ns (3.863ns logic, 0.420ns route)
+                                       (90.2% logic, 9.8% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 7.00 secs
+Total CPU time to Xst completion: 6.59 secs
+ 
+--> 
+
+
+Total memory usage is 514888 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    0 (   0 filtered)
+Number of infos    :    4 (   0 filtered)
+

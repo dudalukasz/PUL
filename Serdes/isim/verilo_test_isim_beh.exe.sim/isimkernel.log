@@ -1,0 +1,30 @@
+Command line:
+   verilo_test_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  55084
+
+Tue Jun  2 15:21:17 2015
+
+
+ Elaboration Time: 0.02 sec
+
+ Current Memory Usage: 196.002 Meg
+
+ Total Signals          : 33
+ Total Nets             : 69
+ Total Signal Drivers   : 16
+ Total Blocks           : 9
+ Total Primitive Blocks : 7
+ Total Processes        : 19
+ Total Traceable Variables  : 38
+ Total Scalar Nets and Variables : 724
+Total Line Count : 63
+Total Line Count : 63
+
+ Total Simulation Time: 2.05 sec
+
+ Current Memory Usage: 271.503 Meg
+
+Tue Jun  2 19:03:33 2015
+

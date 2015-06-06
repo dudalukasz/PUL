@@ -21,7 +21,7 @@
 #include <malloc.h>
 #define alloca _alloca
 #endif
-static const char *ng0 = "/home/michal/Winda/Test_elevator.vhd";
+static const char *ng0 = "/home/michal/Dokumenty/VHDL/Elevator/elevator_test.vhd";
 
 
 
@@ -328,7 +328,7 @@ LAB25:    goto LAB24;
 
 LAB27:    goto LAB25;
 
-LAB28:    t2 = (t0 + 9648);
+LAB28:    t2 = (t0 + 10152);
     xsi_report(t2, 19U, (unsigned char)3);
     goto LAB29;
 

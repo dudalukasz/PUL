@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2015-05-18T19:47:45</DateModified>
+  <DateModified>2015-06-02T14:59:24</DateModified>
   <ModuleName>Winda_GOTOWY</ModuleName>
   <SummaryTimeStamp>Unknown</SummaryTimeStamp>
-  <SavedFilePath>/home/michal/Winda/iseconfig/Winda_GOTOWY.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>/home/michal/Winda/</ImplementationReportsDirectory>
+  <SavedFilePath>/home/michal/Dokumenty/VHDL/Elevator/iseconfig/Winda_GOTOWY.xreport</SavedFilePath>
+  <ImplementationReportsDirectory>/home/michal/Dokumenty/VHDL/Elevator/</ImplementationReportsDirectory>
   <DateInitialized>2015-05-11T01:04:28</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>

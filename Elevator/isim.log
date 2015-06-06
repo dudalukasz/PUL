@@ -1,5 +1,5 @@
 ISim log file
-Running: /home/michal/Winda/Winda_GOTOWE_testbench_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb /home/michal/Winda/Winda_GOTOWE_testbench_isim_beh.wdb 
+Running: /home/michal/Dokumenty/VHDL/Elevator/Winda_GOTOWE_testbench_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb /home/michal/Dokumenty/VHDL/Elevator/Winda_GOTOWE_testbench_isim_beh.wdb 
 ISim P.20131013 (signature 0xfbc00daa)
 ----------------------------------------------------------------------
 INFO:Security:51 - The XILINXD_LICENSE_FILE environment variable is not set.
@@ -31,7 +31,7 @@ Finished circuit initialization process.
 
 ** Failure:Assertion violation
 User(VHDL) Code Called Simulation Stop
-In process Test_elevator.vhd:stim_proc 
+In process elevator_test.vhd:stim_proc 
  
 INFO: Simulator is stopped.
 # exit 0

@@ -1,0 +1,6 @@
+EN winda_gotowy NULL /home/michal/Dokumenty/VHDL/Elevator/elevator.vhd sub00/vhpl04 1432574197
+AR sseg behavioral /home/michal/Dokumenty/VHDL/Elevator/sevenSegment.vhd sub00/vhpl03 1432574196
+AR clock_divider behavioral /home/michal/Dokumenty/VHDL/Elevator/clock_divider.vhd sub00/vhpl01 1432571110
+EN clock_divider NULL /home/michal/Dokumenty/VHDL/Elevator/clock_divider.vhd sub00/vhpl00 1432571109
+EN sseg NULL /home/michal/Dokumenty/VHDL/Elevator/sevenSegment.vhd sub00/vhpl02 1432574195
+AR winda_gotowy winda_gotowy_entity /home/michal/Dokumenty/VHDL/Elevator/elevator.vhd sub00/vhpl05 1432574198
