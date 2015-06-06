@@ -10,8 +10,8 @@ Parsing VHDL file "/home/michal/Dokumenty/VHDL/Serdes/deserializer.vhd" into lib
 Parsing VHDL file "/home/michal/Dokumenty/VHDL/Serdes/connect_ser_des.vhd" into library work
 Starting static elaboration
 Completed static elaboration
-Fuse Memory Usage: 98116 KB
-Fuse CPU Usage: 1650 ms
+Fuse Memory Usage: 98132 KB
+Fuse CPU Usage: 1700 ms
 Compiling module connect_ser_des_tb
 Compiling module glbl
 Compiling package standard
@@ -23,10 +23,9 @@ Compiling architecture behavioral of entity serializer [serializer_default]
 Compiling architecture behavioral of entity deserializer [deserializer_default]
 Compiling architecture behavioral of entity connect_ser_des [connect_ser_des_default]
 Time Resolution for simulation is 1ps.
-Waiting for 2 sub-compilation(s) to finish...
 Compiled 11 VHDL Units
 Compiled 2 Verilog Units
 Built simulation executable /home/michal/Dokumenty/VHDL/Serdes/connect_ser_des_tb_isim_beh.exe
-Fuse Memory Usage: 676976 KB
-Fuse CPU Usage: 1890 ms
-GCC CPU Usage: 6160 ms
+Fuse Memory Usage: 676952 KB
+Fuse CPU Usage: 1920 ms
+GCC CPU Usage: 580 ms

@@ -1,26 +1,5 @@
 `timescale 1ns / 1ps
 
-////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer:
-//
-// Create Date:   11:55:00 06/06/2015
-// Design Name:   connect_ser_des
-// Module Name:   /home/michal/Dokumenty/VHDL/Serdes/connect_ser_des_tb.v
-// Project Name:  Serdes
-// Target Device:  
-// Tool versions:  
-// Description: 
-//
-// Verilog Test Fixture created by ISE for module: connect_ser_des
-//
-// Dependencies:
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-////////////////////////////////////////////////////////////////////////////////
 
 module connect_ser_des_tb;
 
@@ -28,6 +7,8 @@ module connect_ser_des_tb;
 	reg [7:0] in_comp;
 	reg clk;
 	reg nreset;
+	// line for the text read from file
+	reg [7:0] data [0:15]; 
 
 	// Outputs
 	wire [7:0] out_comp;
@@ -40,18 +21,17 @@ module connect_ser_des_tb;
 		.nreset(nreset)
 	);
 
+	initial
+	   $readmemb("Dane_Odczyt.txt",data);
+   integer i;
 	initial begin
-		// Initialize Inputs
 		in_comp = 0;
 		clk = 0;
 		nreset = 0;
-
-		// Wait 100 ns for global reset to finish
-		#100;
-        
-		// Add stimulus here
-
-	end
-      
+		
+		$display("Data read: ");
+		for (i=0;i<15;i=i+1)
+		$display("%d: %B",i,data[i]);
+	end 
+	always #5 clk = ~clk;
 endmodule
-

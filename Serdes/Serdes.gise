@@ -83,7 +83,7 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1433584517" xil_pn:in_ck="-1011589714004324926" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1433584517">
+    <transform xil_pn:end_ts="1433588264" xil_pn:in_ck="-1011589714004324926" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1433588264">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="connect_ser_des.vhd"/>
@@ -91,11 +91,11 @@
       <outfile xil_pn:name="deserializer.vhd"/>
       <outfile xil_pn:name="serializer.vhd"/>
     </transform>
-    <transform xil_pn:end_ts="1433265698" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="-3984149720173938822" xil_pn:start_ts="1433265698">
+    <transform xil_pn:end_ts="1433586466" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="-3984149720173938822" xil_pn:start_ts="1433586466">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1433265698" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="-8270432091551180228" xil_pn:start_ts="1433265698">
+    <transform xil_pn:end_ts="1433586466" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="-8270432091551180228" xil_pn:start_ts="1433586466">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
@@ -103,30 +103,42 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1433584517" xil_pn:in_ck="-1011589714004324926" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1433584517">
+    <transform xil_pn:end_ts="1433588234" xil_pn:in_ck="-1011589714004324926" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1433588234">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputChanged"/>
+      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="connect_ser_des.vhd"/>
       <outfile xil_pn:name="connect_ser_des_tb.v"/>
       <outfile xil_pn:name="deserializer.vhd"/>
       <outfile xil_pn:name="serializer.vhd"/>
     </transform>
-    <transform xil_pn:end_ts="1433584524" xil_pn:in_ck="-1011589714004324926" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="7271509608622463317" xil_pn:start_ts="1433584517">
+    <transform xil_pn:end_ts="1433588237" xil_pn:in_ck="-1011589714004324926" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="7271509608622463317" xil_pn:start_ts="1433588234">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputChanged"/>
       <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="connect_ser_des_tb_beh.prj"/>
       <outfile xil_pn:name="connect_ser_des_tb_isim_beh.exe"/>
       <outfile xil_pn:name="fuse.log"/>
       <outfile xil_pn:name="isim"/>
+      <outfile xil_pn:name="isim.log"/>
       <outfile xil_pn:name="xilinxsim.ini"/>
     </transform>
-    <transform xil_pn:end_ts="1433584524" xil_pn:in_ck="8927018492784972306" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="-7604975033991121928" xil_pn:start_ts="1433584524">
+    <transform xil_pn:end_ts="1433588237" xil_pn:in_ck="8927018492784972306" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="-7604975033991121928" xil_pn:start_ts="1433588237">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="connect_ser_des_tb_isim_beh.wdb"/>
       <outfile xil_pn:name="isim.cmd"/>
+      <outfile xil_pn:name="isim.log"/>
     </transform>
     <transform xil_pn:end_ts="1432664531" xil_pn:name="TRAN_copyInitialToXSTAbstractSynthesis" xil_pn:start_ts="1432664531">
       <status xil_pn:value="SuccessfullyRun"/>

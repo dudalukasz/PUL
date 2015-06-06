@@ -27,5 +27,21 @@ Time resolution is 1 ps
 # wave add /
 # run 1000 ns
 Simulator is doing circuit initialization process.
+Data read: 
+          0:11111111
+          1:00000111
+          2:00001111
+          3:11010101
+          4:10000001
+          5:10001011
+          6:11110101
+          7:10101010
+          8:00101011
+          9:11101010
+         10:11110000
+         11:10000001
+         12:11111111
+         13:11110000
+         14:00000000
 Finished circuit initialization process.
 # exit 0
