@@ -21,7 +21,7 @@
 #include <malloc.h>
 #define alloca _alloca
 #endif
-static const char *ng0 = "/home/michal/Pulpit/Serdes/serializer.vhd";
+static const char *ng0 = "/home/michal/Dokumenty/VHDL/Serdes/serializer.vhd";
 extern char *IEEE_P_3620187407;
 extern char *IEEE_P_2592010699;
 
@@ -96,8 +96,8 @@ LAB2:    xsi_set_current_line(46, ng0);
 LAB5:    xsi_set_current_line(48, ng0);
     t2 = (t0 + 1672U);
     t6 = *((char **)t2);
-    t2 = (t0 + 5888U);
-    t7 = (t0 + 5949);
+    t2 = (t0 + 5976U);
+    t7 = (t0 + 6037);
     t9 = (t13 + 0U);
     t10 = (t9 + 0U);
     *((int *)t10) = 0;
@@ -278,7 +278,7 @@ LAB2:    xsi_set_current_line(61, ng0);
 LAB5:    xsi_set_current_line(63, ng0);
     t2 = (t0 + 1672U);
     t6 = *((char **)t2);
-    t2 = (t0 + 5888U);
+    t2 = (t0 + 5976U);
     t7 = ieee_p_3620187407_sub_2255506239096166994_3965413181(IEEE_P_3620187407, t13, t6, t2, 1);
     t8 = (t13 + 12U);
     t14 = *((unsigned int *)t8);

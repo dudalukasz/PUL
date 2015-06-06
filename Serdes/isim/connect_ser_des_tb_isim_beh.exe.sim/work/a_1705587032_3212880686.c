@@ -21,7 +21,7 @@
 #include <malloc.h>
 #define alloca _alloca
 #endif
-static const char *ng0 = "/home/michal/Pulpit/Serdes/deserializer.vhd";
+static const char *ng0 = "/home/michal/Dokumenty/VHDL/Serdes/deserializer.vhd";
 extern char *IEEE_P_2592010699;
 extern char *IEEE_P_3620187407;
 
@@ -162,7 +162,7 @@ LAB11:    t19 = (t0 + 4232);
     t21 = (t21 + 1);
     t6 = (t5 + 12U);
     *((unsigned int *)t6) = t21;
-    t6 = (t0 + 6525);
+    t6 = (t0 + 6629);
     t8 = (t18 + 0U);
     t9 = (t8 + 0U);
     *((int *)t9) = 0;
@@ -301,7 +301,7 @@ LAB7:    t2 = (t0 + 1192U);
 LAB10:    xsi_set_current_line(68, ng0);
     t2 = (t0 + 1672U);
     t7 = *((char **)t2);
-    t2 = (t0 + 6448U);
+    t2 = (t0 + 6552U);
     t8 = ieee_p_3620187407_sub_2255506239096166994_3965413181(IEEE_P_3620187407, t15, t7, t2, 1);
     t9 = (t15 + 12U);
     t16 = *((unsigned int *)t9);
@@ -433,8 +433,8 @@ LAB10:    xsi_set_current_line(81, ng0);
 
 LAB13:    t2 = (t0 + 1992U);
     t7 = *((char **)t2);
-    t2 = (t0 + 6480U);
-    t8 = (t0 + 6528);
+    t2 = (t0 + 6584U);
+    t8 = (t0 + 6632);
     t16 = (t15 + 0U);
     t17 = (t16 + 0U);
     *((int *)t17) = 0;
@@ -463,8 +463,8 @@ LAB16:    xsi_set_current_line(84, ng0);
 
 LAB19:    t1 = (t0 + 1672U);
     t5 = *((char **)t1);
-    t1 = (t0 + 6448U);
-    t6 = (t0 + 6536);
+    t1 = (t0 + 6552U);
+    t6 = (t0 + 6640);
     t8 = (t15 + 0U);
     t14 = (t8 + 0U);
     *((int *)t14) = 0;

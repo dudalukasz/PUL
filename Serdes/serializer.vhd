@@ -66,4 +66,3 @@ end process licz;
 
 
 end Behavioral;
-

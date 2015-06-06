@@ -28,8 +28,4 @@ Time resolution is 1 ps
 # run 1000 ns
 Simulator is doing circuit initialization process.
 Finished circuit initialization process.
-# restart
-# run all
-Simulator is doing circuit initialization process.
-Finished circuit initialization process.
-Stopped at time : 151389040 ns : File "/home/michal/Dokumenty/VHDL/Serdes/connect_ser_des_tb.v" Line 45
+# exit 0

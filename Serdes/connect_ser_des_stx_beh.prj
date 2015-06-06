@@ -1,3 +1,0 @@
-vhdl isim_temp "../../../Pulpit/Serdes/serializer.vhd"
-vhdl isim_temp "../../../Pulpit/Serdes/deserializer.vhd"
-vhdl isim_temp "connect_ser_des.vhd"

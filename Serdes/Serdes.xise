@@ -15,29 +15,23 @@
   <version xil_pn:ise_version="14.7" xil_pn:schema_version="2"/>
 
   <files>
-    <file xil_pn:name="../../../Pulpit/Serdes/serializer.vhd" xil_pn:type="FILE_VHDL">
+    <file xil_pn:name="serializer.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="1"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="1"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="60"/>
     </file>
-    <file xil_pn:name="../../../Pulpit/Serdes/deserializer.vhd" xil_pn:type="FILE_VHDL">
+    <file xil_pn:name="deserializer.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="2"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="61"/>
     </file>
     <file xil_pn:name="connect_ser_des.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="3"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="46"/>
-    </file>
-    <file xil_pn:name="test_serilizer.vhd" xil_pn:type="FILE_VHDL">
-      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="0"/>
-      <association xil_pn:name="PostMapSimulation" xil_pn:seqID="51"/>
-      <association xil_pn:name="PostRouteSimulation" xil_pn:seqID="51"/>
-      <association xil_pn:name="PostTranslateSimulation" xil_pn:seqID="51"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="62"/>
     </file>
     <file xil_pn:name="connect_ser_des_tb.v" xil_pn:type="FILE_VERILOG">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="4"/>
-      <association xil_pn:name="PostMapSimulation" xil_pn:seqID="60"/>
-      <association xil_pn:name="PostRouteSimulation" xil_pn:seqID="60"/>
-      <association xil_pn:name="PostTranslateSimulation" xil_pn:seqID="60"/>
+      <association xil_pn:name="PostMapSimulation" xil_pn:seqID="63"/>
+      <association xil_pn:name="PostRouteSimulation" xil_pn:seqID="63"/>
+      <association xil_pn:name="PostTranslateSimulation" xil_pn:seqID="63"/>
     </file>
   </files>
 
